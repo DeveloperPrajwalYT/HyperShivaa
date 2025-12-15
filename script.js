@@ -1,5 +1,5 @@
 const apiKey = "3af1494b2952fb227643fee0721546cf";
-const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Kathmandu,np&appid=" + apiKey;
+const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Kolkata,in&appid=" + apiKey;
 
 // Sıcaklık ve nem bilgisini çek
 async function getWeather() {
@@ -20,7 +20,7 @@ async function getWeather() {
 function updateTime() {
   const now = new Date();
   const options = {
-    timeZone: "Asia/Kathmandu",
+    timeZone: "Asia/Kolkata",
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -29,7 +29,7 @@ function updateTime() {
     second: "2-digit"
   };
 
-  const formattedTime = now.toLocaleString("np-NP", options);
+  const formattedTime = now.toLocaleString("in-IN", options);
   document.querySelector(".datetime").textContent = formattedTime;
 }
 
