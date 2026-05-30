@@ -9,7 +9,7 @@ You **do not need any coding experience** to do this. All you need to know is ho
 
 ## 🛠️ How to Edit Your File
 1. Open your repository on **GitHub**.
-2. Click on your website file (usually named `hypershivaa-linktree.html` or `index.html`).
+2. Click on your website file (usually named `index.html`).
 3. Click the **Pencil Icon (Edit this file)** in the top right corner.
 4. Press **Ctrl + F** (or **Cmd + F** on Mac) to open the search bar. This is how you will find the exact lines to change!
 5. After making changes, scroll to the bottom, click **Commit changes**, and your website updates instantly!
@@ -25,7 +25,6 @@ When someone opens your website, it loads a default theme. Right now, it is set 
    ```html
    <body data-theme="arctic-ice">
 
-```
  3. Change "arctic-ice" to any theme name from the list below. Make sure to keep the quotation marks ""!
 ### Available Theme Names to Choose From:
  * cyber-red (Futuristic neon red/dark purple)
