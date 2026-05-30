@@ -1,4 +1,5 @@
-File backup: In the backups folder
+**If you decide to replace the file, STRICTLY, name it index.html. i being small i**
+``File backup: In the backups folder``
 # 🎮 Hyper Shivaa's Website Editing Guide (No Coding Needed!)
 
 Welcome, Shivaa! This guide is created specifically for you so you can easily manage, update, and change everything on your link tree website while your friend is away. 
