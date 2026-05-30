@@ -109,6 +109,9 @@ Your sponsor menu has special animations (glow and jitter) to make it stand out.
    ```
  3. Change href="https://dabarcade.in/" to your new sponsor's link if you get a new one.
  4. Replace Dab Arcade — Top Up Diamonds with the new sponsor's name, and update the subtitle message below it.
+
+***NOTE ⚠️ | I'VE ALREADY DELETED THE CURRENT SPONSER MENU, IF YOU WANT IT BACK, THEN JUST REPLACE THE CURRENT `index.html` WITH THE BACK FILE 
+STRICTLY, name the main file `index.html` though.***
 ### 🔄 How to Bring Back the Sponsor Menu if it gets deleted:
 If you accidentally delete your sponsor container or want to add a brand new one back later, follow these steps:
  1. Search for: </div> right above the footer section, or just find the end of your links-section.
