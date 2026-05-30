@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Hyper Shivaa</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@400;700;900&family=DM+Sans:wght@300;400;600&family=Bebas+Neue&family=Cinzel:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════ THEMES ═══════════════════════ */
+:root,[data-theme="cyber-red"]{
+  --bg1:#0a0008;--bg2:#160010;--bg3:#200018;
+  --acc:#ff003c;--acc2:#ff6b00;--acc3:#fff;
+  --text:#fff;--sub:#cc8899;--muted:#664455;
+  --card:rgba(255,0,60,0.07);--border:rgba(255,0,60,0.2);
+  --glow:rgba(255,0,60,0.35);--font-h:'Orbitron',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="neon-blue"]{
+  --bg1:#000a14;--bg2:#001428;--bg3:#001e3c;
+  --acc:#00c8ff;--acc2:#0080ff;--acc3:#fff;
+  --text:#e8f8ff;--sub:#6aadcc;--muted:#2a5566;
+  --card:rgba(0,200,255,0.07);--border:rgba(0,200,255,0.2);
+  --glow:rgba(0,200,255,0.35);--font-h:'Orbitron',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="gaming-green"]{
+  --bg1:#000a00;--bg2:#001400;--bg3:#001e00;
+  --acc:#00ff88;--acc2:#00cc44;--acc3:#fff;
+  --text:#e8fff0;--sub:#55aa77;--muted:#1a4428;
+  --card:rgba(0,255,136,0.07);--border:rgba(0,255,136,0.2);
+  --glow:rgba(0,255,136,0.35);--font-h:'Rajdhani',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="golden-king"]{
+  --bg1:#080600;--bg2:#140e00;--bg3:#1e1400;
+  --acc:#ffd700;--acc2:#ff8c00;--acc3:#000;
+  --text:#fff8e0;--sub:#ccaa44;--muted:#664400;
+  --card:rgba(255,215,0,0.07);--border:rgba(255,215,0,0.2);
+  --glow:rgba(255,215,0,0.4);--font-h:'Cinzel',serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="galaxy-purple"]{
+  --bg1:#04000e;--bg2:#08001c;--bg3:#0e002a;
+  --acc:#aa00ff;--acc2:#ff00cc;--acc3:#fff;
+  --text:#f0e8ff;--sub:#8855cc;--muted:#3a1155;
+  --card:rgba(170,0,255,0.08);--border:rgba(170,0,255,0.2);
+  --glow:rgba(170,0,255,0.4);--font-h:'Orbitron',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="fire-orange"]{
+  --bg1:#0e0400;--bg2:#1c0800;--bg3:#280c00;
+  --acc:#ff6600;--acc2:#ffcc00;--acc3:#000;
+  --text:#fff4e0;--sub:#cc7733;--muted:#662200;
+  --card:rgba(255,102,0,0.08);--border:rgba(255,102,0,0.2);
+  --glow:rgba(255,102,0,0.4);--font-h:'Bebas Neue',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="arctic-ice"]{
+  --bg1:#f0f8ff;--bg2:#e0f0ff;--bg3:#d0e8ff;
+  --acc:#0057ff;--acc2:#00aaff;--acc3:#fff;
+  --text:#001433;--sub:#4477aa;--muted:#99bbdd;
+  --card:rgba(0,87,255,0.06);--border:rgba(0,87,255,0.15);
+  --glow:rgba(0,87,255,0.3);--font-h:'Rajdhani',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="sakura-pink"]{
+  --bg1:#fff0f5;--bg2:#ffe0ec;--bg3:#ffd0e4;
+  --acc:#e91e8c;--acc2:#ff6baa;--acc3:#fff;
+  --text:#1a0510;--sub:#cc5588;--muted:#ddaabb;
+  --card:rgba(233,30,140,0.06);--border:rgba(233,30,140,0.15);
+  --glow:rgba(233,30,140,0.3);--font-h:'Cinzel',serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="midnight-teal"]{
+  --bg1:#000e0e;--bg2:#001818;--bg3:#002222;
+  --acc:#00ffdd;--acc2:#00bbaa;--acc3:#000;
+  --text:#e0fffc;--sub:#44aaaa;--muted:#114444;
+  --card:rgba(0,255,221,0.07);--border:rgba(0,255,221,0.2);
+  --glow:rgba(0,255,221,0.35);--font-h:'Orbitron',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="blood-moon"]{
+  --bg1:#060000;--bg2:#110000;--bg3:#1a0000;
+  --acc:#ff1100;--acc2:#ff6600;--acc3:#fff;
+  --text:#fff0ee;--sub:#aa3322;--muted:#551111;
+  --card:rgba(255,17,0,0.08);--border:rgba(255,17,0,0.2);
+  --glow:rgba(255,17,0,0.4);--font-h:'Bebas Neue',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="emerald"]{
+  --bg1:#000e06;--bg2:#001810;--bg3:#00221a;
+  --acc:#00e676;--acc2:#69f0ae;--acc3:#000;
+  --text:#e8fff3;--sub:#44bb77;--muted:#115533;
+  --card:rgba(0,230,118,0.07);--border:rgba(0,230,118,0.2);
+  --glow:rgba(0,230,118,0.35);--font-h:'Rajdhani',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="solar-white"]{
+  --bg1:#fafafa;--bg2:#f0f0f0;--bg3:#e8e8e8;
+  --acc:#ff3300;--acc2:#ff8800;--acc3:#fff;
+  --text:#111;--sub:#666;--muted:#bbb;
+  --card:rgba(255,51,0,0.05);--border:rgba(255,51,0,0.15);
+  --glow:rgba(255,51,0,0.25);--font-h:'Bebas Neue',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="phantom-black"]{
+  --bg1:#000;--bg2:#080808;--bg3:#101010;
+  --acc:#ffffff;--acc2:#aaaaaa;--acc3:#000;
+  --text:#fff;--sub:#888;--muted:#333;
+  --card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.1);
+  --glow:rgba(255,255,255,0.2);--font-h:'Orbitron',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="indian-saffron"]{
+  --bg1:#0a0600;--bg2:#160c00;--bg3:#1e1000;
+  --acc:#ff9933;--acc2:#138808;--acc3:#fff;
+  --text:#fff8ee;--sub:#cc7722;--muted:#663300;
+  --card:rgba(255,153,51,0.08);--border:rgba(255,153,51,0.2);
+  --glow:rgba(255,153,51,0.4);--font-h:'Cinzel',serif;--font-b:'DM Sans',sans-serif;
+}
+[data-theme="neon-pink"]{
+  --bg1:#0a0010;--bg2:#14001e;--bg3:#1e0030;
+  --acc:#ff00aa;--acc2:#aa00ff;--acc3:#fff;
+  --text:#ffe8ff;--sub:#cc55aa;--muted:#551155;
+  --card:rgba(255,0,170,0.08);--border:rgba(255,0,170,0.2);
+  --glow:rgba(255,0,170,0.4);--font-h:'Orbitron',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+
+/* ═══════════════════════ RESET ═══════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{min-height:100%;width:100%;overflow-x:hidden;}
+body{
+  background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);
+  color:var(--text);font-family:var(--font-b);
+  min-height:100vh;
+  transition:background 0.5s,color 0.4s;
+  position:relative;
+}
+
+/* ═══════════════════════ PARTICLES BG ═══════════════════════ */
+#particles-bg{
+  position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;
+}
+.bg-orb{
+  position:absolute;border-radius:50%;filter:blur(80px);
+  animation:orbPulse 8s ease-in-out infinite alternate;
+}
+@keyframes orbPulse{0%{transform:scale(1) translateY(0);opacity:0.4;}100%{transform:scale(1.2) translateY(-30px);opacity:0.7;}}
+
+/* ═══════════════════════ GRID LINES ═══════════════════════ */
+#grid-bg{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(var(--border) 1px,transparent 1px),
+    linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:50px 50px;
+  opacity:0.3;
+  animation:gridShift 20s linear infinite;
+}
+@keyframes gridShift{0%{background-position:0 0;}100%{background-position:50px 50px;}}
+
+/* ═══════════════════════ SCAN LINES ═══════════════════════ */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);
+  animation:scanMove 8s linear infinite;
+}
+@keyframes scanMove{0%{background-position:0 0;}100%{background-position:0 40px;}}
+
+/* ═══════════════════════ WRAPPER ═══════════════════════ */
+.wrapper{
+  position:relative;z-index:2;
+  max-width:540px;margin:0 auto;
+  padding:2rem 1.2rem 4rem;
+  display:flex;flex-direction:column;align-items:center;
+}
+
+/* ═══════════════════════ THEME SWITCHER ═══════════════════════ */
+.theme-bar{
+  position:fixed;top:1rem;right:1rem;z-index:100;
+}
+.theme-fab{
+  background:var(--card);border:1px solid var(--border);
+  color:var(--acc);font-size:1.2rem;
+  width:44px;height:44px;border-radius:50%;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(10px);
+  transition:transform 0.3s,box-shadow 0.3s;
+  box-shadow:0 0 20px var(--glow);
+}
+.theme-fab:hover{transform:scale(1.15) rotate(30deg);box-shadow:0 0 30px var(--glow);}
+.theme-dropdown{
+  position:absolute;top:52px;right:0;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:12px;padding:0.5rem;
+  min-width:180px;
+  display:none;flex-direction:column;gap:2px;
+  backdrop-filter:blur(16px);
+  box-shadow:0 8px 40px rgba(0,0,0,0.5);
+  max-height:70vh;overflow-y:auto;
+}
+.theme-dropdown.open{display:flex;}
+.theme-opt{
+  background:none;border:none;color:var(--text);
+  font-family:var(--font-b);font-size:0.78rem;
+  padding:0.55rem 0.9rem;
+  cursor:pointer;border-radius:8px;text-align:left;
+  display:flex;align-items:center;gap:0.6rem;
+  transition:background 0.2s,color 0.2s;
+  white-space:nowrap;
+}
+.theme-opt:hover,.theme-opt.active{background:var(--card);color:var(--acc);}
+.t-swatch{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+
+/* ═══════════════════════ AVATAR ═══════════════════════ */
+.avatar-wrap{
+  position:relative;margin-bottom:1.4rem;
+  margin-top:1rem;
+  animation:avatarEntry 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+  opacity:0;transform:scale(0.5);
+}
+@keyframes avatarEntry{to{opacity:1;transform:scale(1);}}
+.avatar-ring{
+  position:absolute;inset:-6px;border-radius:50%;
+  border:2px solid transparent;
+  background:linear-gradient(var(--bg1),var(--bg1)) padding-box,
+             linear-gradient(135deg,var(--acc),var(--acc2)) border-box;
+  animation:ringRotate 4s linear infinite;
+}
+@keyframes ringRotate{0%{filter:hue-rotate(0deg);}100%{filter:hue-rotate(360deg);}}
+.avatar-ring2{
+  position:absolute;inset:-14px;border-radius:50%;
+  border:1px solid var(--border);
+  animation:ringRotate 8s linear infinite reverse;
+}
+.avatar-img{
+  width:100px;height:100px;border-radius:50%;
+  object-fit:cover;display:block;
+  position:relative;z-index:1;
+}
+.avatar-online{
+  position:absolute;bottom:4px;right:4px;z-index:2;
+  width:16px;height:16px;border-radius:50%;
+  background:var(--acc);
+  border:3px solid var(--bg1);
+  animation:pulse 2s ease-in-out infinite;
+  box-shadow:0 0 10px var(--glow);
+}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.3);}}
+
+/* ═══════════════════════ NAME & BIO ═══════════════════════ */
+.name{
+  font-family:var(--font-h);font-size:clamp(1.6rem,6vw,2.2rem);
+  font-weight:900;letter-spacing:0.05em;
+  text-align:center;line-height:1.1;
+  background:linear-gradient(135deg,var(--acc),var(--acc2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:nameEntry 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both;
+  filter:drop-shadow(0 0 20px var(--glow));
+}
+@keyframes nameEntry{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.handle{
+  font-family:var(--font-b);font-size:0.82rem;
+  color:var(--sub);letter-spacing:0.15em;text-transform:uppercase;
+  margin:0.3rem 0 0.7rem;
+  animation:nameEntry 0.9s 0.35s both;
+}
+.bio{
+  font-size:0.88rem;color:var(--sub);
+  text-align:center;line-height:1.6;
+  max-width:380px;
+  animation:nameEntry 0.9s 0.45s both;
+}
+
+/* ═══════════════════════ WEATHER WIDGET ═══════════════════════ */
+.weather-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:1rem 1.4rem;
+  margin:1.2rem 0;width:100%;
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:0.5rem;text-align:center;
+  backdrop-filter:blur(10px);
+  animation:nameEntry 0.9s 0.55s both;
+  box-shadow:0 4px 30px rgba(0,0,0,0.3);
+}
+.weather-item{display:flex;flex-direction:column;align-items:center;gap:0.2rem;}
+.weather-icon{font-size:1.4rem;}
+.weather-val{font-family:var(--font-h);font-size:1rem;font-weight:700;color:var(--acc);}
+.weather-lbl{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--sub);}
+.weather-divider{width:1px;background:var(--border);margin:auto 0;}
+
+/* ═══════════════════════ LINKS ═══════════════════════ */
+.links-section{width:100%;display:flex;flex-direction:column;gap:0.85rem;margin-top:0.5rem;}
+
+.link-btn{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem 1.4rem;
+  border-radius:14px;
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--text);
+  text-decoration:none;
+  font-family:var(--font-b);font-size:0.95rem;font-weight:600;
+  backdrop-filter:blur(10px);
+  transition:transform 0.25s cubic-bezier(0.16,1,0.3,1),
+             box-shadow 0.25s,border-color 0.25s,background 0.25s;
+  cursor:pointer;
+  animation:linkEntry 0.6s both;
+}
+.link-btn:nth-child(1){animation-delay:0.6s;}
+.link-btn:nth-child(2){animation-delay:0.72s;}
+.link-btn:nth-child(3){animation-delay:0.84s;}
+.link-btn:nth-child(4){animation-delay:0.96s;}
+.link-btn:nth-child(5){animation-delay:1.08s;}
+
+@keyframes linkEntry{
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.link-btn:hover{
+  transform:translateY(-4px) scale(1.02);
+  border-color:var(--acc);
+  box-shadow:0 8px 40px var(--glow),inset 0 0 30px rgba(255,255,255,0.02);
+}
+.link-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.05),transparent);
+  transform:translateX(-100%);
+  transition:transform 0.6s ease;
+}
+.link-btn:hover::before{transform:translateX(100%);}
+
+.link-icon{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+  background:linear-gradient(135deg,var(--acc),var(--acc2));
+  color:var(--acc3);
+  box-shadow:0 4px 15px var(--glow);
+  transition:transform 0.3s,box-shadow 0.3s;
+}
+.link-btn:hover .link-icon{transform:scale(1.15) rotate(-5deg);box-shadow:0 6px 25px var(--glow);}
+.link-label{flex:1;text-align:left;}
+.link-sub{display:block;font-size:0.7rem;color:var(--sub);font-weight:400;margin-top:1px;}
+.link-arrow{font-size:0.85rem;color:var(--sub);transition:transform 0.3s,color 0.3s;}
+.link-btn:hover .link-arrow{transform:translateX(4px);color:var(--acc);}
+
+/* ═══ SPONSOR BUTTON — JITTER ═══ */
+.sponsor-btn{
+  background:linear-gradient(135deg,var(--acc),var(--acc2)) !important;
+  border-color:transparent !important;
+  color:var(--acc3) !important;
+  animation:linkEntry 0.6s 1.2s both, jitter 0.15s 2.5s 6 linear, sponsorGlow 2s 3.5s ease-in-out infinite;
+}
+.sponsor-btn .link-icon{
+  background:rgba(0,0,0,0.25) !important;
+  color:var(--acc3) !important;
+  box-shadow:none !important;
+}
+.sponsor-btn .link-label,.sponsor-btn .link-sub,.sponsor-btn .link-arrow{color:var(--acc3) !important;}
+@keyframes jitter{
+  0%{transform:translateX(0);}
+  20%{transform:translateX(-4px) rotate(-1deg);}
+  40%{transform:translateX(4px) rotate(1deg);}
+  60%{transform:translateX(-3px) rotate(-0.5deg);}
+  80%{transform:translateX(3px) rotate(0.5deg);}
+  100%{transform:translateX(0);}
+}
+@keyframes sponsorGlow{
+  0%,100%{box-shadow:0 0 20px var(--glow),0 0 40px var(--glow);}
+  50%{box-shadow:0 0 40px var(--glow),0 0 80px var(--glow),0 0 100px rgba(255,255,255,0.1);}
+}
+.sponsor-badge{
+  position:absolute;top:-8px;right:12px;
+  background:var(--acc3);color:var(--acc);
+  font-family:var(--font-h);font-size:0.55rem;font-weight:900;
+  padding:2px 8px;border-radius:20px;
+  letter-spacing:0.1em;text-transform:uppercase;
+  box-shadow:0 2px 10px rgba(0,0,0,0.3);
+  animation:badgePop 0.5s 3s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes badgePop{from{transform:scale(0) rotate(-10deg);}to{transform:scale(1) rotate(0deg);}}
+
+/* ═══════════════════════ FOOTER ═══════════════════════ */
+.footer{
+  margin-top:2.5rem;font-size:0.7rem;color:var(--muted);
+  text-align:center;letter-spacing:0.1em;
+  animation:nameEntry 0.9s 1.4s both;
+}
+
+/* ═══════════════════════ FLOATING PARTICLES ═══════════════════════ */
+.fp{position:fixed;pointer-events:none;z-index:1;border-radius:50%;animation:fpFloat linear infinite;}
+@keyframes fpFloat{
+  0%{transform:translateY(105vh) translateX(0) rotate(0deg);opacity:0;}
+  5%{opacity:1;}
+  95%{opacity:1;}
+  100%{transform:translateY(-10vh) translateX(var(--drift)) rotate(720deg);opacity:0;}
+}
+
+/* ═══════════════════════ MOBILE ═══════════════════════ */
+@media(max-width:480px){
+  .wrapper{padding:1.5rem 1rem 3rem;}
+  .avatar-img{width:85px;height:85px;}
+  .weather-val{font-size:0.9rem;}
+  .link-btn{padding:0.9rem 1.1rem;}
+  .theme-bar{top:0.6rem;right:0.6rem;}
+}
+@media(min-width:768px){
+  .wrapper{padding:3rem 2rem 5rem;}
+  .avatar-img{width:120px;height:120px;}
+}
+</style>
+</head>
+<body data-theme="arctic-ice">
+
+<div id="particles-bg"></div>
+<div id="grid-bg"></div>
+
+<!-- THEME BAR -->
+<div class="theme-bar">
+  <button class="theme-fab" id="themeFab" title="Change Theme">🎨</button>
+  <div class="theme-dropdown" id="themeDropdown"></div>
+</div>
+
+<!-- MAIN WRAPPER -->
+<div class="wrapper">
+
+  <!-- AVATAR -->
+  <div class="avatar-wrap">
+    <div class="avatar-ring2"></div>
+    <div class="avatar-ring"></div>
+    <img class="avatar-img" src="https://cdn.discordapp.com/attachments/1450126119075577866/1463170227146723444/349834761_1696055930816610_1417266750203605606_n.jpg?ex=6a1b9536&is=6a1a43b6&hm=0ec3c934777cc4796dd8b34ebcbd59be1995c654e061cd8f659a192ac64189ac&" alt="Hyper Shivaa" crossorigin="anonymous" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23222%22/><text x=%2250%22 y=%2260%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22%23fff%22>HS</text></svg>'"/>
+    <div class="avatar-online"></div>
+  </div>
+
+  <!-- NAME -->
+  <h1 class="name">HYPER SHIVAA</h1>
+  <p class="handle">@hypershivaa</p>
+  <p class="bio">🎮 Content Creator &amp; Gamer · Mobile Legends · West Bengal, India<br>live at 4:45 Indian TZ 🔥</p>
+
+  <!-- WEATHER WIDGET -->
+  <div class="weather-card" id="weatherCard">
+    <div class="weather-item">
+      <span class="weather-icon" id="wIcon">🌀</span>
+      <span class="weather-val" id="wTemp">—</span>
+      <span class="weather-lbl">Kolkata Temp</span>
+    </div>
+    <div class="weather-divider"></div>
+    <div class="weather-item">
+      <span class="weather-icon">💧</span>
+      <span class="weather-val" id="wHumid">—</span>
+      <span class="weather-lbl">Humidity</span>
+    </div>
+    <div class="weather-divider"></div>
+    <div class="weather-item">
+      <span class="weather-icon">🕐</span>
+      <span class="weather-val" id="wTime">—</span>
+      <span class="weather-lbl">IST Kolkata</span>
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div class="links-section">
+
+    <!-- YouTube -->
+    <a class="link-btn" href="https://youtube.com/@hypershivaa?si=DWKOixHIPRs3Yl7h" target="_blank" rel="noopener">
+      <div class="link-icon">▶</div>
+      <div class="link-label">
+        YouTube
+        <span class="link-sub">Watch my videos</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <!-- Instagram -->
+    <a class="link-btn" href="https://www.instagram.com/hypershivaa1/" target="_blank" rel="noopener">
+      <div class="link-icon">📸</div>
+      <div class="link-label">
+        Instagram
+        <span class="link-sub">Follow for updates</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <!-- Facebook -->
+    <a class="link-btn" href="https://www.facebook.com/HyperShivaa/" target="_blank" rel="noopener">
+      <div class="link-icon">👥</div>
+      <div class="link-label">
+        Facebook
+        <span class="link-sub">Join the community</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <!-- Discord -->
+    <a class="link-btn" href="https://discord.gg/WMzUGDhkYY" target="_blank" rel="noopener">
+      <div class="link-icon">💬</div>
+      <div class="link-label">
+        Discord Server
+        <span class="link-sub">Hang out with us</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <!-- SPONSOR — Dab Arcade -->
+    <a class="link-btn sponsor-btn" href="https://dabarcade.in/" target="_blank" rel="noopener">
+      <span class="sponsor-badge">🔥 SPONSOR</span>
+      <div class="link-icon">💎</div>
+      <div class="link-label">
+        Dab Arcade — Top Up Diamonds
+        <span class="link-sub">Mobile Legends · Cheapest ML Diamonds!</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+  </div>
+
+  <p class="footer">© 2026 Hyper Shivaa · Kolkata, West Bengal, India</p>
+</div>
+
+<script>
+// ═══ THEMES ═══
+const themes = [
+  {id:'cyber-red',    label:'Cyber Red',       swatch:'#ff003c'},
+  {id:'neon-blue',    label:'Neon Blue',        swatch:'#00c8ff'},
+  {id:'gaming-green', label:'Gaming Green',     swatch:'#00ff88'},
+  {id:'golden-king',  label:'Golden King',      swatch:'#ffd700'},
+  {id:'galaxy-purple',label:'Galaxy Purple',    swatch:'#aa00ff'},
+  {id:'fire-orange',  label:'Fire Orange',      swatch:'#ff6600'},
+  {id:'arctic-ice',   label:'Arctic Ice',       swatch:'#0057ff'},
+  {id:'sakura-pink',  label:'Sakura Pink',      swatch:'#e91e8c'},
+  {id:'midnight-teal',label:'Midnight Teal',    swatch:'#00ffdd'},
+  {id:'blood-moon',   label:'Blood Moon',       swatch:'#ff1100'},
+  {id:'emerald',      label:'Emerald',          swatch:'#00e676'},
+  {id:'solar-white',  label:'Solar White',      swatch:'#ff3300'},
+  {id:'phantom-black',label:'Phantom Black',    swatch:'#ffffff'},
+  {id:'indian-saffron',label:'Indian Saffron',  swatch:'#ff9933'},
+  {id:'neon-pink',    label:'Neon Pink',        swatch:'#ff00aa'},
+];
+
+const fab = document.getElementById('themeFab');
+const dropdown = document.getElementById('themeDropdown');
+let dropOpen = false;
+
+themes.forEach(t => {
+  const btn = document.createElement('button');
+  btn.className = 'theme-opt' + (t.id==='cyber-red'?' active':'');
+  btn.dataset.t = t.id;
+  btn.innerHTML = `<span class="t-swatch" style="background:${t.swatch}"></span>${t.label}`;
+  btn.addEventListener('click', () => {
+    document.body.setAttribute('data-theme', t.id);
+    document.querySelectorAll('.theme-opt').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    dropdown.classList.remove('open');
+    dropOpen = false;
+    respawnParticles();
+  });
+  dropdown.appendChild(btn);
+});
+
+fab.addEventListener('click', e => {
+  e.stopPropagation();
+  dropOpen = !dropOpen;
+  dropdown.classList.toggle('open', dropOpen);
+});
+document.addEventListener('click', () => {
+  dropdown.classList.remove('open');
+  dropOpen = false;
+});
+dropdown.addEventListener('click', e => e.stopPropagation());
+
+// ═══ BG ORBS ═══
+const bgContainer = document.getElementById('particles-bg');
+function makeOrbs(){
+  bgContainer.innerHTML='';
+  const orbs=[
+    {w:400,h:400,top:'-10%',left:'-5%',delay:0},
+    {w:300,h:300,top:'40%',right:'-5%',delay:3},
+    {w:250,h:250,top:'70%',left:'20%',delay:6},
+  ];
+  orbs.forEach(o=>{
+    const div=document.createElement('div');
+    div.className='bg-orb';
+    div.style.cssText=`width:${o.w}px;height:${o.h}px;background:var(--glow);top:${o.top||'auto'};left:${o.left||'auto'};right:${o.right||'auto'};animation-delay:-${o.delay}s;`;
+    bgContainer.appendChild(div);
+  });
+}
+makeOrbs();
+
+// ═══ FLOATING PARTICLES ═══
+function spawnParticles(){
+  document.querySelectorAll('.fp').forEach(p=>p.remove());
+  for(let i=0;i<20;i++){
+    const p=document.createElement('div');
+    p.className='fp';
+    const size=Math.random()*4+1;
+    const drift=(Math.random()-0.5)*200;
+    p.style.cssText=`
+      width:${size}px;height:${size}px;
+      left:${Math.random()*100}vw;
+      background:var(--acc);
+      opacity:${Math.random()*0.4+0.1};
+      --drift:${drift}px;
+      animation-duration:${Math.random()*15+10}s;
+      animation-delay:${Math.random()*10}s;
+    `;
+    document.body.appendChild(p);
+  }
+}
+spawnParticles();
+function respawnParticles(){
+  makeOrbs();
+  spawnParticles();
+}
+
+// ═══ LIVE CLOCK (IST = UTC+5:30) ═══
+function updateClock(){
+  const now = new Date();
+  const utc = now.getTime() + now.getTimezoneOffset()*60000;
+  const ist = new Date(utc + 5.5*3600000);
+  const h = String(ist.getHours()).padStart(2,'0');
+  const m = String(ist.getMinutes()).padStart(2,'0');
+  const s = String(ist.getSeconds()).padStart(2,'0');
+  const el = document.getElementById('wTime');
+  if(el) el.textContent = `${h}:${m}:${s}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ═══ LIVE WEATHER — Open-Meteo (free, no key) ═══
+// Kolkata lat=22.5726, lon=88.3639
+async function fetchWeather(){
+  try{
+    const url='https://api.open-meteo.com/v1/forecast?latitude=22.5726&longitude=88.3639&current=temperature_2m,relative_humidity_2m,weather_code&timezone=Asia%2FKolkata';
+    const res=await fetch(url);
+    const data=await res.json();
+    const temp=data.current.temperature_2m;
+    const humid=data.current.relative_humidity_2m;
+    const code=data.current.weather_code;
+    document.getElementById('wTemp').textContent=`${Math.round(temp)}°C`;
+    document.getElementById('wHumid').textContent=`${humid}%`;
+    document.getElementById('wIcon').textContent=weatherIcon(code);
+  }catch(e){
+    document.getElementById('wTemp').textContent='—';
+    document.getElementById('wHumid').textContent='—';
+    document.getElementById('wIcon').textContent='🌡️';
+  }
+}
+function weatherIcon(code){
+  if(code===0) return '☀️';
+  if(code<=2) return '⛅';
+  if(code<=3) return '☁️';
+  if(code<=49) return '🌫️';
+  if(code<=57) return '🌧️';
+  if(code<=67) return '🌧️';
+  if(code<=77) return '❄️';
+  if(code<=82) return '🌦️';
+  if(code<=86) return '🌨️';
+  if(code<=99) return '⛈️';
+  return '🌡️';
+}
+fetchWeather();
+setInterval(fetchWeather, 600000); // refresh every 10 min
+
+// ═══ SPONSOR JITTER re-trigger every 8s ═══
+const sponsorBtn = document.querySelector('.sponsor-btn');
+setInterval(()=>{
+  sponsorBtn.style.animation='none';
+  sponsorBtn.offsetHeight; // reflow
+  sponsorBtn.style.animation='jitter 0.12s 0s 5 linear, sponsorGlow 2s ease-in-out infinite';
+}, 8000);
+</script>
+</body>
+</html>
